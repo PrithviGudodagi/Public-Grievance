@@ -1,0 +1,97 @@
+<%- include('partials/header.ejs') %>
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">Sql Statements</a>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="/">Back</a>
+      </li>
+    </ul>
+  </nav>
+
+
+<table class="table" style="margin-top: 50px;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+  </tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Select staement for Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td>SELECT * FROM HWL36879.EDUCATION ---- >HWL36879 is the cloud sql database name hosted on IBM Cloud And the same continues for all tables just with table name change</td>
+    </tr>
+  </tbody>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Select Statements for user search </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td>SELECT * FROM HWL36879.EDUCATION WHERE complaintnumber="+complaintnumber+"; ---- >HWL36879 is the cloud sql database name hosted on IBM Cloud And the same continues for all tables just with table name change</td>
+    </tr>
+  </tbody>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Insert staement for user forms </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td> INSERT INTO HWL36879.HEALTH (firstname , lastname , email , phonenumber , homeaddress , city , zip , report , department) VALUES ('"+firstname+"' , '"+lastname+"' , '"+email+"' , '"+phonenumber+"' , '"+homeaddress+"' , '"+city+"' , '"+zip+"' , '"+reporttext+"' , '"+department+"'); ---- >HWL36879 is the cloud sql database name hosted on IBM Cloud And the same continues for all tables just with table name change</td>
+    </tr>
+  </tbody>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Update statemet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td> UPDATE HWL36879.EDUCATION SET ACCEPTED="+accept+", REJECTED="+rejected+", SUBMITTED="+submitted+", RESOLVED="+resolved+" WHERE COMPLAINTNUMBER="+complaintnumber+"; ---- >HWL36879 is the cloud sql database name hosted on IBM Cloud And the same continues for all tables just with table name change</td>
+    </tr>
+  </tbody>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Create Statements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+   <td> CREATE TABLE  eductaion( <br>
+complaintnumber INT GENERATED ALWAYS AS IDENTITY <br>
+                                         (START WITH 100, INCREMENT BY 1), <br>
+firstname VARCHAR(30)  NOT NULL, <br>
+lastname  VARCHAR(30)  NOT NULL, <br>
+email VARCHAR(50) NOT NULL, <br>
+phonenumber  INT NOT NULL, <br>
+homeaddress VARCHAR(60) NOT NULL, <br>
+city VARCHAR(15) NOT NULL, <br>
+zip INT NOT NULL,<br>
+report VARCHAR(180)  NOT NULL,<br>
+department VARCHAR(30) NOT NULL,<br>
+submitted boolean NOT NULL with default true,<br>
+accepted boolean  NOT NULL with default false,<br>
+rejected boolean  NOT NULL with default false,<br>
+resolved boolean  NOT NULL with default false <br>
+);  ---->HWL36879 is the cloud sql database name hosted on IBM Cloud And the same continues for all tables just with table name change</td>
+    </tr>
+  </tbody>
+
+  
+</table>
+
+
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,127 @@
+  
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+         <title>Report list</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="/c/assets/img/favicon.ico">
+
+        <!-- CSS here -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+            <link rel="stylesheet" href="/c/assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/c/assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="/c/assets/css/price_rangs.css">
+            <link rel="stylesheet" href="/c/assets/css/flaticon.css">
+            <link rel="stylesheet" href="/c/assets/css/slicknav.css">
+            <link rel="stylesheet" href="/c/assets/css/animate.min.css">
+            <link rel="stylesheet" href="/c/assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="/c/assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="/c/assets/css/themify-icons.css">
+            <link rel="stylesheet" href="/c/assets/css/slick.css">
+            <link rel="stylesheet" href="/c/assets/css/nice-select.css">
+            <link rel="stylesheet" href="/c/assets/css/style.css">
+   </head>
+
+   <body>
+    <!-- Preloader Start -->
+    
+    <!-- Preloader Start -->
+
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Admin Dashboard</a>
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="/admin/panel">Back</a>
+          </li>
+        </ul>
+      </nav>
+
+    
+    <main>
+
+       
+        <!-- Job List Area Start -->
+        <div class="job-listing-area pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- Right content -->
+                    <div class="col-xl-9 col-lg-9 col-md-8">
+                        <!-- Featured_job_start -->
+                        <section class="featured-job-area">
+                            <div class="container">
+                              <% for(var i=0; i < info.length; i++) { %>
+                                <!-- single-job-content -->
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        
+                                        <div class="job-tittle job-tittle2">
+                                            <a href=>
+                                                <h4><%= info[i].FIRSTNAME %> <%= info[i].LASTNAME %></h4>
+                                            </a>
+                                            <ul>
+                                                <li><%= info[i].ID %></li>
+                                                <li><i class="fas fa-flag"></i><%= info[i].DEPARTMENT %></li>
+                                                <li id="status"></li>
+                                            </ul>
+                                            <p><%= info[i].REPORT %></p>
+                                        </div>
+                                    </div>
+                                    <div class="ui buttons">
+                                      <a style="height: 40px;" class="ui red basic button" href="/admin/checkinfo?complaintnumber=<%= info[i].COMPLAINTNUMBER %>&dept=<%= info[i].DEPARTMENT%>">CHECK</a>
+                                    </div>
+                                    
+                                <!-- single-job-content -->
+                               
+                                
+                            </div>
+                            <% } %>
+                        </section>
+                        <!-- Featured_job_end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </main>
+
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+	<!-- JS here -->
+	<!-- <script>
+    var subm = <%= info[0].SUBMITTED %>
+    var acc = <%= info[0].ACCEPTED %>
+    var rej = <%= info[0].REJECTED %>
+    var res = <%= info[0].RESOLVED %>
+    if(subm == 1) document.getElementById('status').innerText = "Submitted"
+    else if(acc == 1) document.getElementById('status').innerText = "Accepted"
+    else if(rej == 1) document.getElementById('status').innerText = "Rejected"
+    else if(res == 1) document.getElementById('status').innerText = "Resolved"
+</script> -->
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="/c/assets//js/vendor/modernizr-3.5.0.min.js"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="/c/assets//js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/c/assets//js/popper.min.js"></script>
+        <script src="/c/assets//js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="/c/assets//js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Range -->
+        <script src="/c/assets//js/owl.carousel.min.js"></script>
+        <script src="/c/assets//js/slick.min.js"></script>
+        <script src="/c/assets//js/price_rangs.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="/c/assets//js/wow.min.js"></script>
+		<script src="/c/assets//js/animated.headline.js"></script>
+        <script src="/c/assets//js/jquery.magnific-popup.js"></script>

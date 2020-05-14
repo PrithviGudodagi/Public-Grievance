@@ -1,0 +1,77 @@
+<%- include('partials/header.ejs') %>
+
+<style>
+  .reports{
+    padding:20px 0 100px 0;
+  }
+</style>
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Admin Dashboard</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="/admin/panel">Back</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">Zip</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% for(var i=0; i < info.length; i++) { %>        
+              <tr>
+                
+                <th scope="row"><%= info[i].COMPLAINTNUMBER %></th>
+                <td><%= info[i].FIRSTNAME %> <%= info[i].LASTNAME %></td>
+                <td><%= info[i].EMAIL %></td>
+                <td><%= info[i].PHONENUMBER %></td>
+                <td><%= info[i].HOMEADDRESS %></td>
+                <td><%= info[i].CITY %></td>
+                <td><%= info[i].ZIP %></td>
+                <% if(info[i].ACCEPTED == 1){ %>
+                    <td>ACCEPTED</td> 
+                <% }else if(info[i].SUBMITTED == 1){ %>
+                    <td>SUBMITTED</td>
+                <% }else if(info[i].REJECTED == 1){ %>
+                    <td>REJECTED</td>
+                <% }else if(info[i].RESOLVED == 1){ %>
+                    <td>RESOLVED</td>
+                <% } %>
+
+            </tr>
+            
+      </tbody>
+    </table>
+    <div class="reports">
+      <h2>Report</h2>
+      <p><%= info[i].REPORT %></p>
+    </div>
+    
+     <button type="button" class="ui green basic button">
+              <i class="fas fa-thumbs-up"></i>
+             <a href="/admin/updateaccept?complaintnumber=<%= info[i].COMPLAINTNUMBER %>&dept=<%= info[i].DEPARTMENT %>">ACCEPT</a>
+            </button>
+            <button type="button" class="ui orange basic button">
+              <i class="fas fa-thumbs-down"></i>
+              <a href="/admin/updateresolve?complaintnumber=<%= info[i].COMPLAINTNUMBER %>&dept=<%= info[i].DEPARTMENT %>">RESOLVE</a>
+            </button>
+            <button  type="button"class="ui red basic button">
+            <i class="fas fa-times"></i>
+            <a href="/admin/updaterejected?complaintnumber=<%= info[i].COMPLAINTNUMBER %>&dept=<%= info[i].DEPARTMENT %>">REJECT</a>
+          </button> 
+          <% } %>
+  </div>
+  <%- include('partials/footer.ejs') %>
+
