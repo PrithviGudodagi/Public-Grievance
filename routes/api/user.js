@@ -30,7 +30,8 @@ console.log(department);
         if(err){
             console.log(err);
         }else if(department === 'Education'){
-            var education = "INSERT INTO HWL36879.EDUCATION (firstname , lastname , email , phonenumber , homeaddress , city , zip , report , department) VALUES ('"+firstname+"' , '"+lastname+"' , '"+email+"' , '"+phonenumber+"' , '"+homeaddress+"' , '"+city+"' , '"+zip+"' , '"+reporttext+"' , '"+department+"');";
+            console.log("entered educzation");
+            var education = "INSERT INTO HWL36879.EDUCTAION(firstname , lastname , email , phonenumber , homeaddress , city , zip , report , department) VALUES ('"+firstname+"' , '"+lastname+"' , '"+email+"' , '"+phonenumber+"' , '"+homeaddress+"' , '"+city+"' , '"+zip+"' , '"+reporttext+"' , '"+department+"');";
         conn.query(education,function(err,data){  //required
             if(err){
                 console.log(err);
